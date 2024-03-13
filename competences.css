@@ -1,0 +1,90 @@
+body{
+    background-image: url(LEwY5keB_4x.jpg);
+    background-size: cover;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1{
+    color: aqua;
+    text-align: center;
+    font-family: monospace;
+    font-style: italic;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+body > h1{
+    color:#7884f2;
+    text-align: center;
+    font-family: monospace;
+    font-style: italic;
+    margin-bottom: 50px;
+}
+
+h2 {
+    color: aqua;
+    text-align: center;
+}
+
+.competences{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    
+}
+
+
+
+.reseaux , .programmation, .logiciel, .telephonie, .cybersecurite{
+    background-color: rgb(255 255 255 / 19%);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 20px #555; 
+    -webkit-box-shadow: 0 0 20px #555; 
+    box-shadow: 0 0 20px #555; 
+    width:400px;
+    
+}
+
+ul{
+    padding: 0
+}
+
+li{
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #7884f2;
+    text-align: center;
+    list-style-type: none;
+    font-weight: bold;
+    
+    
+}
+
+p{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 80px;
+}
+
+#une_etoile, #deux_etoiles, #trois_etoiles, #quatre_etoiles, #cinq_etoiles {
+    display: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(24, 12, 215, 0.4), rgb(27, 27, 27, 0.5) );
+    padding: 15px;
+    width: 100%;
+    
+}
+footer p {
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+    color: #FFF;
+}   

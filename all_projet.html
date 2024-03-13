@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Hugo LAHOUEL">
+    <meta name="description" content="Site web de Hugo Lahouel">
+    <title>Site Hugo Lahouel</title>
+    <link rel="stylesheet" href="all_projet.css">
+</head>
+
+
+
+<body>
+    <header>
+        <h1>Voici mes projets</h1>
+    </header>
+    <main>
+        <section>
+            <h1>En formation</h1>
+            <div>
+                <h2>Infrastructure virtualisée</h2>
+                <p>Lors d'un projet en cours de Réseaux, nous avons dû, en binôme, concevoir et mettre en place une
+                    infrastructure virtualisée correspondant au réseau d’une petite entreprise.</p>
+                <p>Nous avons mené à bien ce projet à l'aide du logiciel GNS3 que nous n'avions jamais utilisé.</p>
+                <p>Cette entreprise virtualisée devait être constituée de 3 services: 1 service technique, 1 service RH
+                    et un service finance. Ces services étaient situés dans 3 vlans différents. Nous avons donc dû faire
+                    du routage inter-VLAN. </p>
+                <p>De plus, nous avons centralisé plusieurs services réseaux en un seul serveur (FTP, DHCP, WEB,
+                    Téléphonique)</p>
+                <p>Sur l'un des ordinateurs, nous avons dû faire apparaitre une page WEB que nous avons créée, où se
+                    situep notre compte rendu de projet.</p>
+                <p>Pour terminer nous avons fait un suivi des logs dont la mission principale consiste à stocker un
+                    historique des événements du serveur.</p>
+            </div>
+
+            <h3>Vous trouverez ci-dessous, une image de notre infrastructure avec quelques informations dessus.</h3>
+
+            <div class="img_gns">
+                <img src="gns3.png" alt="image de notre infrastructure gns3">
+            </div>
+            <p>Ce projet m'a permis de plonger dans l'univers complexe mais crucial de la virtualisation. En mettant en
+                place une infrastructure virtualisée pour une entreprise simulée, j'ai pu non seulement appliquer les
+                concepts théoriques appris en classe, mais aussi comprendre en profondeur les avantages de cette
+                technologie. La flexibilité, la scalabilité et la facilité de gestion offertes par la virtualisation
+                sont devenues évidentes à mesure que nous configurions des réseaux virtuels et centralisions des
+                services sur un seul serveur. Ce projet a également souligné l'importance croissante de la
+                virtualisation dans le paysage informatique moderne, où les entreprises cherchent à optimiser leurs
+                ressources et à réduire leurs coûts tout en restant compétitives sur le marché. </p>
+            <div>
+                <h2>Infrastructure physique</h2>
+                <p>Lors du projet de fin d'année, nous avons créer le réseau informatique d'une petite entreprise. Ce
+                    réseau possédait des postes de travail, un commutateur, un routeur ainsi qu'un pare-feu.
+                    Nous avons mis en place des services DHCP, FTP, Téléphonique et un Active Directory.
+                    Voici un aperçu de notre infrastructure :
+                </p>
+                <div class="img_gns">
+                    <img src="infra_phy.png" alt="image de notre infrastructure ">
+                </div>
+            </div>
+            <p>La mise en place de l'infrastructure physique pour une entreprise fictive a été une expérience enrichissante qui a mis en lumière l'importance cruciale de la planification et de l'organisation dans la construction d'un réseau robuste. En travaillant sur ce projet, j'ai réalisé à quel point chaque composant, depuis les postes de travail jusqu'aux serveurs, joue un rôle vital dans le fonctionnement harmonieux d'une entreprise. De plus, la configuration des services essentiels tels que DHCP, FTP et Active Directory a renforcé ma compréhension pratique de leur fonctionnement et de leur interdépendance. Ce projet a souligné l'importance d'une infrastructure bien conçue pour soutenir les opérations quotidiennes d'une entreprise et pour assurer sa croissance future.</p>
+            <div>
+                <h2>Testes d'intrusion sur des machines virtuelles</h2>
+
+                <p>Sur cette SAE, ma note ne reflète pas mon réel niveau. En effet, je me mettrais la note de 3 ⭐</p>
+                <div>
+                    <h3>Machine Blue :</h3>
+
+                    <h4>Objectif :</h4>
+                    <p>L'objectif de cette analyse est d'identifier les vulnérabilités de la machine nommée 'Blue' à
+                        l'aide de techniques de pentest.</p>
+
+                    <h4>Recherche de l'adresse IP :</h4>
+                    <p>Dans un premier temps, une recherche de l'adresse IP de la machine "Blue" est effectuée à l'aide
+                        d'un script développé pendant les TD de pentesting. Le script utilise une boucle pour tester le
+                        troisième octet de l'adresse IP de 0 à 10, et une seconde boucle pour déterminer le quatrième
+                        octet de 0 à 254. Les réponses sont enregistrées dans un fichier ips.txt.</p>
+
+                    <h4>Détection des ports ouverts :</h4>
+                    <p>Nmap est utilisé pour détecter les ports ouverts sur les adresses IP trouvées dans le fichier
+                        ips.txt. Les ports 135, 139 et 445 sont identifiés comme ouverts. Une analyse basée sur une
+                        documentation interne révèle que les ports 139 et 445 sont associés au service Samba.</p>
+
+                    <h4>Exploration des vulnérabilités Samba avec Metasploit :</h4>
+                    <p>Pour explorer les vulnérabilités du service Samba, Metasploit est utilisé avec le module
+                        "auxiliary/scanner/smb/smb_version". Ce module permet de déterminer la version de Samba. La
+                        version 1 de Samba est détectée sur la machine Blue, qui tourne sur Windows 7. Une recherche sur
+                        Google pour "samba 2.1 exploit" et l'utilisation d'Exploit-db permettent d'identifier des
+                        vulnérabilités connues sur Windows 7.</p>
+
+                    <h4>Exploitation de la vulnérabilité MS17-010 avec Metasploit :</h4>
+                    <p>Metasploit est utilisé pour exploiter la vulnérabilité MS17-010. Le module
+                        "windows/remote/42031.py" est identifié comme potentiellement exploitable sur les systèmes
+                        Windows 7. Une session est ouverte via un reverse TCP, donnant un accès administratif avec des
+                        privilèges "system" sur la machine cible.</p>
+
+                    <h4>Conclusion :</h4>
+                    <p>L'accès initial est obtenu par l'exploitation d'une vulnérabilité Samba, suivi de l'exploitation
+                        de la vulnérabilité MS17-010 pour établir un reverse shell avec des privilèges administratifs.
+                    </p>
+                </div>
+                <div>
+                    <h3>Machine Academy :</h3>
+
+                    <h4>Objectif :</h4>
+                    <p>Obtenir un accès administrateur au système de la machine Academy.</p>
+
+
+
+                    <h4>Scan du réseau :</h4>
+
+                    <p>Utilisation de la commande nmap pour scanner le réseau et identifier les ports ouverts.
+                        Les ports intéressants tels que ftp et http sont identifiés.</p>
+                    <h4>Exploration du service FTP :</h4>
+
+                    <p>Utilisation de nmap avec l'option -A pour obtenir des informations détaillées sur le service ftp,
+                        y compris les versions.
+                        Découverte que le service ftp permet une connexion anonyme.</p>
+                    <h4>Collecte des données via FTP :</h4>
+
+                    <p>Connexion au service ftp en tant qu'utilisateur anonyme.
+                        Exploration des fichiers sur la machine et récupération d'un fichier note.txt contenant un mot
+                        de passe crypté.</p>
+                    <h4>Décryptage du mot de passe :</h4>
+
+                    <p>Utilisation d'un site web pour décrypter le mot de passe et obtenir "student" pour des connexions
+                        ultérieures.</p>
+                    <h4> du service HTTP :</h4>
+
+                    <p>Utilisation de dirbuster pour découvrir des pages cachées sur le site web.
+                        Identification d'une section "academy" nécessitant un login.</p>
+                    <h4>Exploitation du service HTTP :</h4>
+
+                    <p>Utilisation du mot de passe obtenu pour se connecter au site en tant qu'étudiant.
+                        Découverte d'une section permettant l'upload d'une image, potentiellement utilisable pour un
+                        reverse shell.
+                        Téléchargement d'un script PHP de reverse shell et ouverture d'une session avec succès.</p>
+                    <h4>Élévation de privilèges :</h4>
+
+                    <p>Analyse de la version du noyau (kernel) et recherche de vulnérabilités possibles.
+                        Tentatives infructueuses d'exploitation des privilèges via des commandes dans backup.sh.
+                        Découverte d'un utilisateur "grimmie" et d'un fichier backup.zip.
+                        Exploration du fichier backup.zip, révélant un fichier de configuration contenant un autre mot
+                        de passe.
+                        Utilisation de ce mot de passe pour accéder au compte grimmie, mais les privilèges ne sont pas
+                        suffisants.</p>
+                    <h4>Autre méthode d'élévation de privilèges :</h4>
+
+                    <p>Analyse des fichiers présents et identification du fichier backup.sh avec des droits permettant
+                        l'écriture.
+                        Ajout de commandes malveillantes dans backup.sh pour exécuter des actions en root, mais sans
+                        succès.
+                        Utilisation d'un script LinPEAS pour identifier d'autres vulnérabilités.
+                        Découverte de l'exécution planifiée du fichier backup.sh par crontab, avec les privilèges root.
+                    </p>
+                    <h4>Exploitation de la tâche planifiée (Crontab) :</h4>
+
+                    <p>Modification du fichier backup.sh pour inclure une commande de reverse shell.</p>
+
+                    <p>Le crontab exécute la tâche modifiée, lançant ainsi un reverse shell sur la machine attaquante en
+                        tant que root.</p>
+                    <h4>Accès administrateur obtenu :</h4>
+
+                    <p>Connexion réussie en tant que root, permettant un accès administrateur au système de la machine
+                        Academy.</p>
+                    <h4>Conclusion :</h4>
+                    <p>L'objectif d'obtenir un accès administrateur a été atteint en exploitant plusieurs
+                        vulnérabilités, y compris l'utilisation d'informations récupérées via ftp, l'exploitation de
+                        services web, et finalement l'élévation de privilèges en exploitant une tâche planifiée
+                        (Crontab).</p>
+                </div>
+            </div>
+            <div>
+                <h3>Machine Dev :</h3>
+
+                <h4>Objectif :</h4>
+
+                <p>Obtenir un accès root au système de la machine Dev.</p>
+
+                <h4>Scan du réseau :</h4>
+
+                <p>Utilisation d'un script pour scanner le réseau et identifier l'IP de la machine cible (10.170.6.5).
+                    Identification de plusieurs ports ouverts (http, nfs, http-proxy).</p>
+                <h4>Exploration du service NFS :</h4>
+
+                <p>Utilisation de la commande showmount pour afficher la liste des partages NFS avec les adresses réseau
+                    autorisées.
+                    Découverte du partage /srv/nfs accessible depuis la machine distante.</p>
+                <h4>Récupération du partage NFS :</h4>
+
+                <p>Création d'un dossier temporaire "dev" dans /tmp sur la machine attaquante.
+                    Utilisation de la commande mount pour monter le partage NFS distant (/srv/nfs) dans le dossier local
+                    /tmp/dev.
+                    Découverte d'un fichier zippé nécessitant un mot de passe.</p>
+                <h4>Crack du mot de passe du fichier zippé :</h4>
+
+                <p>Utilisation de l'outil fcrackzip pour tenter de cracker le mot de passe du fichier zip.
+                    Le mot de passe "java101" est trouvé.</p>
+                <h4>Décompression du fichier zip :</h4>
+
+                <p>Décompression du fichier zip avec le mot de passe trouvé, révélant les fichiers todo.txt et id_rsa.
+                </p>
+                <h4>Exploration du service HTTP :</h4>
+
+                <p>Utilisation de Dirbuster pour découvrir des vulnérabilités potentielles.
+                    Identification d'un site web accessible à l'adresse http://10.170.6.5/public/index.php.</p>
+                <h4>Exploitation de la base de données via exploit-db :</h4>
+
+                <p>Identification d'une vulnérabilité dans le site BoltWire par recherche sur Exploit-db.
+                    Utilisation d'une commande pour extraire des informations sensibles du fichier passwd via le site
+                    web.</p>
+                <h4>Connexion SSH avec les identifiants trouvés :</h4>
+
+                <p>Utilisation des identifiants "jeanpaul" et "I_love_java" pour se connecter en SSH.
+                    Découverte du fichier todo.txt contenant les lettres "jp," suggérant le nom d'utilisateur.</p>
+                <h4>Exploitation de la vulnérabilité de la commande ZIP :</h4>
+
+                <p>Utilisation de la commande ZIP pour créer un fichier texte malveillant (1.zip) avec une commande de
+                    shell (sh -c /bin/bash).
+                    Exécution de la commande ZIP en mode admin pour obtenir un accès root.</p>
+                <h4>Accès root obtenu :</h4>
+
+                <p>La vulnérabilité dans la commande ZIP permet une escalade de privilèges, fournissant un accès root à
+                    la machine Dev.</p>
+                <h4>Conclusion :</h4>
+                <p>L'objectif d'obtenir un accès root a été atteint en exploitant plusieurs vulnérabilités, notamment
+                    l'accès NFS, la découverte de mots de passe, l'exploitation de vulnérabilités web, et enfin
+                    l'exploitation d'une vulnérabilité dans la commande ZIP pour obtenir des privilèges root.</p>
+            </div>
+            <div>
+                <h3>Machine Butler :</h3>
+
+                <h4>Découverte :</h4>
+
+                <p>Identification des ports ouverts (HTTP et HTTPS).
+                    Utilisation de DirBuster pour l'énumération des répertoires sur le serveur web.</p>
+                <h4>Test d'application Web :</h4>
+                <p>Découverte d'un fichier robots.txt, révélant des informations sur un lien "build" avec un
+                    avertissement de ne pas cliquer.
+                </p>
+                <h4>Attaque par force brute :</h4>
+
+                <p>Utilisation de Burp Suite pour une attaque par force brute sur les identifiants de connexion,
+                    basée sur l'indication que le nom d'utilisateur et le mot de passe sont les mêmes.
+                    Accès réussi au système en utilisant les identifiants "jenkins/jenkins".</p>
+
+                <h4>Exécution de code :</h4>
+
+                <p>Exploration du site web et découverte d'une fonctionnalité permettant d'exécuter du code.
+                    Utilisation d'une commande Windows Batch pour télécharger un script de reverse shell
+                    (InvokePowerShellTcp.ps1).
+                </p>
+
+                <h4>Exécution de commande :</h4>
+
+                <p>Exécution du script de reverse shell, établissant une connexion vers la machine de l'attaquant.
+                </p>
+                <h4>Élévation de privilèges :</h4>
+
+                <p>Exploration des privilèges utilisateur et tentative d'escalade en utilisant winPeas pour
+                    identifier d'éventuelles vulnérabilités.</p>
+                <h4>Conclusion :</h4>
+
+                <p>Obtention d'un accès initial par force brute.
+                    Exploitation d'une vulnérabilité d'exécution de code pour établir un reverse shell.
+                    Tentative d'escalade de privilèges pour un accès ultérieur.</p>
+            </div>
+
+        </section>
+        <section>
+            <h1>Au sein de Sowilo-Network</h1>
+            <section>
+                <h1>Missions principales au sein de Sowilo</h1>
+                <div>
+                    <h2>Configuration et installation de postes de travail, de routeurs, serveurs, téléphones...</h2>
+                    <p>Durant ma période chez Sowilo-Network, j'ai eu la responsabilité de configurer et installer
+                        divers équipements informatique et réseau pour nos clients.</p>
+
+                    <h2>Brassage des équipements réseaux</h2>
+                    <p>J'ai également effectué le brassage d'équipements réseaux pour assurer une connectivité optimale
+                        au sein des sociétés. Cela comprenait le câblage structuré et la gestion physique des
+                        équipements.</p>
+
+                    <h2>Migrations serveurs</h2>
+                    <p>En tant que membre de l'équipe, j'ai participé à des projets de migration de serveurs,
+                        garantissant une transition en douceur et minimisant les interruptions de service.</p>
+
+                    <h2>Configuration VPN + accès distant</h2>
+                    <p>J'ai eu l'occasion de configurer des VPN et des accès distants, permettant aux utilisateurs
+                        d'accéder aux ressources de l'entreprise de manière sécurisée à distance.</p>
+
+                    <h2>Office 365</h2>
+                    <p>J'ai été impliqué dans la mise en place et la gestion de solutions basées sur Office 365 pour
+                        améliorer la collaboration et la productivité au sein de l'entreprise.</p>
+
+                    <h2>Virtualisation</h2>
+                    <p>Avec l'utilisation de la virtualisation, j'ai participé à la création et à la gestion de machines
+                        virtuelles, optimisant les ressources matérielles et simplifiant la gestion des services.</p>
+                </div>
+                <p>Ce projet de test d'intrusion m'a permis d'explorer le côté obscur de la cybersécurité, en plongeant dans les vulnérabilités et les failles potentielles des systèmes informatiques. En adoptant le rôle d'un attaquant éthique, j'ai pu voir de première main à quel point il est crucial pour les entreprises de sécuriser leurs infrastructures contre les menaces en constante évolution. Chaque étape, de la découverte des adresses IP à l'exploitation des vulnérabilités, a mis en lumière l'importance de la vigilance et de la préparation dans le monde numérique d'aujourd'hui. Ce projet a renforcé ma conviction quant à l'importance de la sécurité informatique et m'a motivé à poursuivre mes efforts pour comprendre et contrer les cybermenaces potentielles.</p>
+            </section>
+
+            <div>
+                <h2>Création de l'infrastructure réseau de MPI Mécanique</h2>
+                <p>Durant ma période en entreprise, j'ai eu l'occasion de réaliser l'infrastructure réseau d'une société
+                    de mécanique de précision située à Issoire.
+                    <BR>En effet, cette entreprise a fait appel à notre société pour remettre aux gouts du jour son
+                    infrastrcture qui commençait à être trop ancienne.
+                    <BR>Nous avons donc changé chaque ordinateur de l'entreprise car leur coeur de métier s'appuit sur
+                    un logiciel gourmant en ressources.
+                    <BR>Nous avons ajouté un serveur Proxmox qui permet d'héberger et de centraliser des machines
+                    virutelles. Ces machines virtuelles servent d'active directory, de serveur d'accès à distance et de
+                    serveur TOPSOLID.
+                    <BR>De plus, nous avons configuré un Pare-feu Netgear pour filtrer les données entrant et sortant du
+                    réseau.
+                    Voici schématiquement à quoi ressemble le réseau actuel de l'entreprise :
+                </p>
+                <img src="mpi.png">
+                <p>La création de l'infrastructure réseau pour MPI Mécanique a été une opportunité passionnante de mettre en pratique mes compétences en conception et en déploiement de réseaux dans un environnement professionnel. En travaillant sur ce projet, j'ai pu voir de près les défis spécifiques auxquels sont confrontées les entreprises lorsqu'elles modernisent leur infrastructure informatique. En repensant complètement le réseau de l'entreprise, nous avons pu répondre aux besoins croissants en matière de performances et de sécurité.
+                    <BR>
+                    La transition vers de nouveaux ordinateurs plus performants a été un aspect crucial du projet, car cela a permis à l'entreprise de rester compétitive dans un marché exigeant. En intégrant un serveur Proxmox, nous avons non seulement centralisé la gestion des machines virtuelles, mais également offert à l'entreprise une flexibilité et une évolutivité accrues pour répondre à ses besoins futurs.
+                    <BR>
+                    La configuration d'un pare-feu Netgear a ajouté une couche de sécurité indispensable en filtrant les données entrantes et sortantes, assurant ainsi la protection des informations sensibles de l'entreprise. Ce projet m'a également permis de comprendre l'importance de la gestion proactive des risques en matière de cybersécurité, en garantissant que l'entreprise soit bien protégée contre les menaces potentielles.
+                    <br>
+                    De plus, j'ai créé des accès VPN pour les utilisateurs de l'entreprise, afin que ces derniers puissent travailler à distance.
+                    <BR>
+                    En fin de compte, la création de l'infrastructure réseau de MPI Mécanique a été bien plus qu'une simple mise à niveau technologique. Cela a été une occasion de contribuer à la croissance et à la compétitivité de l'entreprise en fournissant une base solide et sécurisée pour ses opérations informatiques.</p>
+            </div>
+            <!-- <div>
+                <h2>Renvoie de mail de notification Proxmox</h2>
+                <p>Au sein de l'entreprise, j'ai dû créer un service d'envoie de mail de notifications des serveurs Proxmox. En effet, nous avons configuré les serveurs Proxmox de nos clientqs pour qu'ils fassent des sauvegardes des données sur une certaine période. Néanmoins, pour valider le bon fonctionnement de ces sauvegardes, nous étions obligé de nous connectés sur chacun d'entre eux. On m'a donc donné comme mission de trouver un moyen d'être notifié de la réussite ou de la perte des backups.
+
+                </p>
+            </div> -->
+        </section>
+    </main>
+
+</body>
+
+</html>

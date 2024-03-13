@@ -1,0 +1,422 @@
+html {
+    scroll-behavior: smooth;
+    background-color: #f1eeee;
+}
+
+body {
+    margin: 0;
+}
+
+header{
+    background-color: #d20000;
+    padding: 30px;
+
+}
+h1, h2{
+    text-align: center;
+    color: white;
+}
+h1{
+    margin-top: 0;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+}
+/* .menu a{
+    margin-right: 25px;
+    color: #FFF;
+}
+.menu a:hover{
+    color: #000;
+} */
+/* #############################################color de malade 0708a6, 0809cf */
+.menu a{
+    position: relative;
+    padding: 10px 30px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    text-align: center;
+}
+
+.menu a::before{
+    content: " ";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid white;
+    border-left: 2px solid #ffffff;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.menu a::after{
+    content : " ";
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+
+}
+
+.menu a:hover::before, .menu a:hover::after {
+    width: 100%;
+    height: 100%;
+    transition-delay: 0s;
+}
+
+.menu a:hover{
+    background: #f1eeee;
+    color: #000;
+    box-shadow: 0 0 50px #f1eeee;
+    transition-delay: 0.5s;
+}
+
+
+
+
+#a-propos {
+    display: flex;
+    flex-direction: row;
+    padding: 15px 0;
+}
+
+
+.informations {
+    width: 50%;
+}
+.photo-de-moi {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.photo-de-moi img{
+    width: 250px;
+    border-radius: 50%;
+}
+
+.logo-entreprise{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-entreprise > a > img{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#a-propos .informations h3{
+    margin-left: 15%;
+    color: #d20000;
+    text-transform: uppercase;
+}
+.informations-texte {
+    margin-left: 30px;
+}
+
+.informations-texte > p{
+    font-size: larger;
+}
+#parcours{
+    background: radial-gradient(circle, #f1eeee, #d20000);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px;
+}
+#parcours h3{
+    text-align: center;
+    color: #d20000;
+    text-transform: uppercase;
+}
+.cursus-scolaire, .experience-pro{
+    width: 47%;
+    border: solid 2px rgb(175, 175, 175);
+    background: #e9e0e0;
+}
+.liste-cursus, .liste-experiences{
+    padding-right: 20px;
+}
+
+.liste-experiences > ul > li {
+    margin-top: 35px;
+}
+
+.liste-cursus > ul > li {
+    margin-top: 25px;
+}
+
+#competences h3{
+    text-align: center;
+    color: #d20000;
+    text-transform: uppercase;
+}
+
+.liste-competences{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#competences h4{
+    text-align: center;
+    font-size: larger;
+}
+
+#competences {
+    padding-bottom: 15px;
+}
+.liste-competences .techniques, .liste-competences .humaines, .liste-competences .linguistiques{
+    width: 33%;
+}
+
+.techniques, .humaines, .linguistiques{
+    background-color: #e9e0e0;
+}
+
+.linguistiques >ul > li{
+    padding-top: 40px;
+}
+
+/* .humaines{
+    border-left: solid 2px #d20000;
+    border-right: solid 2px #d20000;
+
+} */
+
+h3{
+    font-size: 22px;
+}
+#hobbies-divers h3{
+    text-align: center;
+    color: #d20000;
+    text-transform: uppercase;
+}
+.liste-sport{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.liste-sport .basketball, .liste-sport .danse, .liste-sport .chaussures{
+    width: 30%  ;
+}
+#hobbies-divers{
+    background: radial-gradient(circle, #bbbbbb, #d20000);
+    justify-content: space-between;
+    padding: 30px;
+}
+.basketball-texte, .danse-texte, .chaussures-texte {    
+    text-align: center;
+    color: white;
+}
+
+.basketball-titre, .danse-titre, .chaussures-titre{
+    font-size: 30px;
+}
+.liste-sport img {
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+}
+.detail-hobbies h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.detail-hobbies{
+    position: absolute;
+    top: 0;
+    margin: 10px;
+    display: none;
+}
+.liste-sport .basketball:hover .detail-hobbies, .liste-sport .danse:hover .detail-hobbies, .liste-sport .chaussures:hover .detail-hobbies{
+    display: block;
+}
+.liste-sport .basketball, .liste-sport .danse, .liste-sport .chaussures{
+    width: 30%;
+    position: relative;
+}
+
+#contact {
+    display: flex;
+    padding-bottom: 40px;
+}
+
+#contact > div{
+    width: 50%;
+}
+#contact h2{
+    text-align: left;
+    color: #000000;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-left: 20px;
+}
+.basketball:hover img, .danse:hover img, .chaussures:hover img {
+    filter: contrast(0.3);
+}
+.espace{
+    margin-left: 60px;
+}
+
+.marginnn{
+    margin-bottom: 20px;
+}
+
+.autres-info > ul{
+    margin-left: 50px;
+}
+
+.autres-info >ul >li{
+    list-style-type: disclosure-closed;
+}
+.liste-info {
+    display: flex;
+    flex-direction: row;
+}
+
+/* #contact {
+    background-image: url(../img/vert\ temple.png);
+    padding: 20px 0;
+    background-position: center 30%;
+    background-size: cover; 
+}*/
+#telechargement-cv{
+    display: none;
+}
+
+.autres-info{
+    color: #d20000;
+}
+footer {
+    background: #d20000;
+    padding: 15px;
+}
+footer .footer-texte {
+    text-align: center;
+    margin: 0;
+    color: #f1eeee;
+}
+
+.mail, .tel{
+    color: #d20000;
+    border: solid;
+    padding: 10px;
+}
+
+
+@media screen and (max-width: 750px) {
+    html {
+        overflow-x: hidden;
+    }
+
+    #a-propos {
+        flex-direction: column;
+        padding: 30px 0;
+    }
+    #a-propos .informations,
+    #a-propos .photo-de-moi {
+        width: 100%;
+    }
+    .informations-texte {
+        margin-right: 30px;
+    }
+    #a-propos .informations h3 {
+        margin: 0;
+        text-align: center;
+    }
+
+    #parcours{
+        flex-direction: column;
+    }
+    .cursus-scolaire, .experience-pro{
+        width: 100%;
+    }
+    .cursus-scolaire{
+        margin-bottom: 20px;
+    }
+    .liste-competences{
+        flex-direction: column;
+    }
+    .liste-competences .techniques, 
+    .liste-competences .humaines, 
+    .liste-competences .linguistiques{
+        width: 100%;
+    }
+
+    .humaines{
+        border-left: none;
+        border-right: none;
+        border-top: solid 2px #d20000;
+        border-bottom: solid 2px #d20000;
+    }
+
+    .liste-sport{
+        flex-direction: column;
+    }
+    .liste-sport .basketball,
+    .liste-sport .danse, 
+    .liste-sport .chaussures{
+        width: 100%;
+    }
+
+    .liste-sport .danse{
+        margin: 10px 0;
+    }
+
+    .liste-info{
+        flex-direction: column;
+    }
+    #contact .info-contact, 
+    #contact .autres-info{
+        width: 100%;
+    }
+
+    #telechargement-cv{
+        display: block;
+    }
+    #telechargement-cv a{
+        color: white;
+        text-transform: uppercase;
+    }    
+
+    
+    .menu{
+        flex-direction: column;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 1268px){
+    .menu a{
+        padding: 10px 15px;
+    }
+    
+}
+
+@media screen and (max-width: 1025px){
+    .menu a{
+        padding: 5px 10px;
+
+        
+    }
+}
+
+@media  screen and (max-width: 950px){
+    .menu a{
+        font-size: 15px;
+
+    }
+}
+    
